@@ -4,7 +4,7 @@
     <TargetFrameworks>net46;netstandard1.3;netstandard2.0</TargetFrameworks>
     <AssemblyVersion>0.6.3</AssemblyVersion>
     <DebugType>portable</DebugType>
-    
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <DefineConstants>NO_EXPRESSIONS</DefineConstants>
 
@@ -20,7 +20,11 @@
     <PackageTags>Mond Scripting</PackageTags>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' != 'net46' ">
+  <PropertyGroup Condition=" '$(AllowUnsafeBlocks)' == 'false' ">
+    <DefineConstants>$(DefineConstants);NO_UNSAFE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
     <PackageReference Include="System.Diagnostics.StackTrace" Version="4.3.0" />
     <PackageReference Include="System.Globalization" Version="4.3.0" />
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.4.0" />
