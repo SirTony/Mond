@@ -2,7 +2,7 @@ language: csharp
 sudo: false
 solution: Mond.sln
 mono: none
-dotnet: 2.1.101
+dotnet: 2.1.503
 dist: trusty
 install:
   - dotnet restore
